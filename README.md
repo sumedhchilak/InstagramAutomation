@@ -1,6 +1,6 @@
 # InstagramAutomation
 Program automates general functions on Instagram.
-##Functions
+## Functions
 The functions include:
 - Logging in
 - Following users
