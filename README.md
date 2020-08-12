@@ -1,5 +1,5 @@
 # InstagramAutomation
-Program automates general functions on Instagram.
+Program automates general functions on Instagram. The bot was built using Python 3.7 and with browser automation using the Selenium module and chrome driver. Retrieves Instagram data utilizing both an Instagram Developer API and web scraping. 
 ## Functions
 The functions include:
 - Logging in
@@ -15,5 +15,5 @@ The functions include:
 - Commenting (Work in Progress)
 - Direct Messages (Work in Progress)
 - Editing Profile Information (Work in Progress)
-- SPECIAL FEATURE: Unfollowing those who do not follow you (Work in Progress)
+- SPECIAL FEATURE: Unfollowing those who do not follow you back (Work in Progress)
 
