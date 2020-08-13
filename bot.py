@@ -162,7 +162,7 @@ if __name__ == '__main__':
     bot = InstagramBot("","")
 
     # Tests
-    InstagramBot.login(bot)
+    # InstagramBot.login(bot)
     # InstagramBot.follow_user(bot, "sumedhchilak")
     # InstagramBot.unfollow_user(bot, "sumedhchilak")
     # InstagramBot.like_list(bot,'instagram')
