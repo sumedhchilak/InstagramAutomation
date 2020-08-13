@@ -9,11 +9,11 @@ The functions include:
 - Unliking Posts
 - Searching for tags
 - Navigating Profiles
-- Receiving a list of users who like a post
+- Receiving a list of users who likes a post
 - Gaining Active Follwers
-- Downloading User's images (Work in Progress)
+- Direct Messages
 - Commenting (Work in Progress)
-- Direct Messages (Work in Progress)
+- Downloading User's images (Work in Progress)
 - Editing Profile Information (Work in Progress)
 - SPECIAL FEATURE: Unfollowing those who do not follow you back (Work in Progress)
 
