@@ -8,6 +8,7 @@ import configparser
 from utility_methods.utility_methods import *
 import urllib.request
 from InstagramAPI import InstagramAPI
+import logging
 
 
 class InstagramBot:
@@ -32,6 +33,7 @@ class InstagramBot:
         self.login = config['URL']['LOGIN']
         self.nav_url = config['URL']['NAV']
         self.tag_url = config['URL']['TAGS']
+        self.direct_url = config['URL']['DM']
         self.driver = webdriver.Chrome(config['ENVIRONMENT']['CHROMEDRIVER'])
         self.stay_logged = False
         self.api = InstagramAPI(self.username, self.password)
@@ -101,6 +103,31 @@ class InstagramBot:
         else:
             print('No {} buttons were found.'.format('Following'))
     
+    @sleep_method
+    def direct_message(self, user, msg, num):
+        """
+            Method allows bot to automatically type and send dm to user
+
+        """
+        PAUSE = 1
+        logging.info('Send message {} to {}'.format(msg,user))
+        self.driver.get(self.direct_url)
+        self.driver.find_elements_by_xpath('/html/body/div[2]/div/div/div[2]/div[1]/div/div[2]/input')[0].send_keys(user)
+        time.sleep(PAUSE)
+        self.driver.find_elements_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]')[0].click() #Edge case to get rid of notification
+        time.sleep(PAUSE)
+        self.driver.find_elements_by_xpath('/html/body/div[2]/div/div/div[2]/div[2]/div/div/div[3]/button')[0].click()
+        self.driver.find_elements_by_xpath('/html/body/div[2]/div/div/div[1]/div/div[2]/div/button')[0].click()
+        time.sleep(PAUSE)
+        # The message will be placed and sent
+        self.driver.find_elements_by_xpath('//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')[0].send_keys(msg)
+        time.sleep(PAUSE)
+        self.driver.find_elements_by_xpath('//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[3]/button')[0].click()
+        # Special feature involving reacting with heart
+        for x in range(num):
+            self.driver.find_elements_by_xpath('//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/button[2]')[0].click()
+            time.sleep(PAUSE)
+    
     # Tested
     def find_buttons(self, button_txt):
         """
@@ -141,6 +168,10 @@ class InstagramBot:
         # Tested
         users_list = []
         def get_likes_list(self, username):
+            """
+                Method gets a list of users who like a post
+
+            """
             api = self.api
             api.searchUsername(username) 
             result = api.LastJson
@@ -160,14 +191,15 @@ if __name__ == '__main__':
     config = config_init(config_path)
     log = get_log_object(logger_path)
     bot = InstagramBot("","")
-
     # Tests
-    InstagramBot.login(bot)
+    # InstagramBot.login(bot)
     # InstagramBot.follow_user(bot, "sumedhchilak")
     # InstagramBot.unfollow_user(bot, "sumedhchilak")
     # InstagramBot.like_list(bot,'instagram')
-    # bot.latest_likes('sumedhchilak', 2, likes = True)
-    # InstagramBot.search_tag(bot, 'home')
+    # bot.latest_likes('sumedhchilak', 5, likes = True)
+    # InstagramBot.search_tag(bot, 'School')
+    # bot.direct_message('sumedhchilak', 'hey', 5)
+
 
 
     
