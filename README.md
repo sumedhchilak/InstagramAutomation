@@ -12,8 +12,8 @@ The functions include:
 - Receiving a list of users who likes a post
 - Gaining Active Follwers
 - Direct Messages
-- Commenting (Work in Progress)
-- Downloading User's images (Work in Progress)
-- Editing Profile Information (Work in Progress)
+- Commenting
+- Downloading User's images
+- Editing Profile Information
 - SPECIAL FEATURE: Unfollowing those who do not follow you back (Work in Progress)
 
