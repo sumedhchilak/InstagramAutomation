@@ -15,5 +15,5 @@ The functions include:
 - Commenting
 - Downloading User's images
 - Editing Profile Information
-- SPECIAL FEATURE: Unfollowing those who do not follow you back (Work in Progress)
+- SPECIAL FEATURE: Unfollowing those who do not follow you back
 
